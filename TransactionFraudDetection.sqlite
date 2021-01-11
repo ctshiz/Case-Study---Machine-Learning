@@ -1,0 +1,20 @@
+SELECT *
+FROM transaction_data
+LIMIT 10; 
+
+#The finance department noted that some of the fraudulent transactions were recorded as coming from Smokey Bear’s zip code (20252)
+
+SELECT *
+FROM transaction_data
+WHERE zip LIKE "%20252%";
+
+#Finance has also noticed a number of pseudonyms associated with fraudulent transactions. The fraudsters thought it would be funny to use ‘Art Vandelay’ for their full name or add a ‘der’ for their middle name
+
+SELECT *
+FROM transaction_data
+WHERE full_name LIKE "%Art Vandelay%" OR full_name LIKE "% der %";
+
+#Users are making fraudulent transactions using a temporary email address service. These services provide a short-lived email that can be verified and then self-destructs.
+SELECT *
+FROM transaction_data
+WHERE email LIKE "%temp_email.com";
